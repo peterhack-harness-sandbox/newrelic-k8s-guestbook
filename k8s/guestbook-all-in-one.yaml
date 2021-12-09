@@ -20,6 +20,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-master
+  labels:
+    app: redis
+    tier: backend
+    role: master
 spec:
   selector:
     app: redis
@@ -63,6 +67,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis-slave
+  labels:
+    app: redis
+    tier: backend
+    role: slave
 spec:
   selector:
     app: redis
@@ -114,6 +122,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  labels:
+    app: guestbook
+    tier: frontend
 spec:
   selector:
     app: guestbook
