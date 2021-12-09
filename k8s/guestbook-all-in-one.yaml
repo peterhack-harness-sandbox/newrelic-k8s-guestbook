@@ -26,9 +26,10 @@ metadata:
     role: master
 spec:
   selector:
-    app: redis
-    tier: backend
-    role: master
+    matchLabels:
+    - app: redis
+      tier: backend
+      role: master
   replicas: 1
   template:
     metadata:
@@ -73,9 +74,10 @@ metadata:
     role: slave
 spec:
   selector:
-    app: redis
-    tier: backend
-    role: slave
+    matchLabels:
+    - app: redis
+      tier: backend
+      role: slave
   replicas: 2
   template:
     metadata:
@@ -127,8 +129,9 @@ metadata:
     tier: frontend
 spec:
   selector:
-    app: guestbook
-    tier: frontend
+    matchLabels:
+    - app: guestbook
+      tier: frontend
   replicas: 3
   template:
     metadata:
